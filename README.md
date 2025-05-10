@@ -7,5 +7,5 @@ This is a project for you to practice contributing to open source projects with 
 
 We're assuming that you've already finished the tutorial at [first open source contributions](https://github.com/btrust-builders/first-open-source-contributions)
 
-Head over to [contribution guide](https://github.com/btrust-builders/first-open-source-contributions/blob/main/docs/CONTRIBUTING.md) to start.
+Head over to [contribution guide](https://github.com/btrust-builders/open-source-code-contributions/blob/main/docs/CONTRIBUTING.md) to start.
 
