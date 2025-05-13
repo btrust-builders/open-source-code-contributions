@@ -3,6 +3,8 @@
 ### Contributors Country Flags
 <kbd><img title="Nigeria" alt="Nigeria" src="https://cdn.statically.io/gh/hjnilsson/country-flags/master/svg/ng.svg" width="22"></kbd>
 
+<kbd><img title="Uganda" alt="Uganda" src="https://cdn.statically.io/gh/hjnilsson/country-flags/master/svg/ug.svg" width="22"></kbd>
+
 This is a project for you to practice contributing to open source projects with code.
 
 We're assuming that you've already finished the tutorial at [first open source contributions](https://github.com/btrust-builders/first-open-source-contributions)
