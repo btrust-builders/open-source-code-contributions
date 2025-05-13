@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .card {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 150, 255, 0.5);
+            transition: box-shadow 0.3s ease-in-out;
+            border: 1px solid #ddd;
+        }
+        h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        h4 {
+            font-size: 1.4rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: flex-start;
+        }
+        .badge {
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: bold;
+            color: white;
+            display: inline-block;
+            text-align: center;
+        }
+        .icon {
+            width: 3rem;
+            height: 3rem;
+            margin: 0.5rem;
+            transition: transform 0.3s;
+        }
+        .icon:hover {
+            transform: scale(1.1);
+        }
+        /* Badge colors */
+        .badge.python {
+            background-color: #1668c6;
+        }
+        .badge.javascript {
+            background-color: #f7df1e;
+            color: black;
+        }
+        .badge.nodejs{
+            background-color: #04d03e;
+            color: #111;
+        }
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .container {
+                justify-content: center;
+            }
+            .badge {
+                font-size: 0.9rem;
+                padding: 0.4rem 0.8rem;
+            }
+            .icon {
+                width: 2.5rem;
+                height: 2.5rem;
+            }
+            h3 {
+                font-size: 1.6rem;
+            }
+            p {
+                font-size: 1rem;
+            }
+        }
+        @media (max-width: 480px) {
+            h3 {
+                font-size: 1.4rem;
+            }
+            p {
+                font-size: 0.9rem;
+            }
+            .icon {
+                width: 2rem;
+                height: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h3>Mercy Mbao</h3>
+        <p>I’m a frontend developer passionate about building clean, user-friendly web experiences.
+             I enjoy working with tools like React, JavaScript, and Figma, 
+             and I’m currently expanding my skills in blockchain and Python. 
+            I love learning, creating, and bringing ideas to life through code.</p>
+        <h4>Programming languages I use</h4>
+        <section class="container">
+            <div class="badge python">Python</div>
+            <div class="badge javascript">JavaScript</div>
+            <div class="badge nodejs">nodejs</div>
+        </section>
+    
+        <h4>Tools I use</h4>
+        <section class="container">
+            <img
+                class="icon"
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bash/bash-original.svg"
+                alt="Bash"
+            />
+            <img
+                class="icon"
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg"
+                alt="Linux"
+            />
+            <img
+                class="icon"
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg"
+                alt="Figma"
+            />
+            <img
+            class="icon"
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg"
+            alt="Git"
+        />
+        <img
+                class="icon"
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg"
+                alt="VS Code"
+            />
+        </section>
+    </div>
+</body>
+</html>
