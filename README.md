@@ -3,6 +3,7 @@
 ### Contributors Country Flags
 <kbd><img title="Nigeria" alt="Nigeria" src="https://cdn.statically.io/gh/hjnilsson/country-flags/master/svg/ng.svg" width="22"></kbd>
 <kbd><img title="Uganda" alt="Uganda" src="https://cdn.statically.io/gh/hjnilsson/country-flags/master/svg/ug.svg" width="22"></kbd>
+<kbd><img title="Kenya"   alt="Kenya flag"   src="https://cdn.statically.io/gh/hjnilsson/country-flags/master/svg/ke.svg" width="22"></kbd>
 
 This is a project for you to practice contributing to open source projects with code.
 
