@@ -13,8 +13,9 @@ fi
 # Start generating the JavaScript array
 echo "const contributorFiles = [" > "$OUTPUT_FILE"
 
-# List all HTML files in the cards directory
-find "$CARDS_DIR" -type f -name "*.html" | sed "s|^$CARDS_DIR/|  \"|; s|$|\",|" >> "$OUTPUT_FILE"
+# List all HTML files in the cards directory, sort alphabetically
+find "$CARDS_DIR" -type f -name "*.html" | sort | sed "s|^$CARDS_DIR/|  \"|; s|$|\",|" >> "$OUTPUT_FILE"
+
 
 # Close the JavaScript array
 echo "];" >> "$OUTPUT_FILE"
