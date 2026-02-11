@@ -7,6 +7,7 @@
 <kbd><img title="Benin"   alt="Benin"   src="https://cdn.statically.io/gh/hjnilsson/country-flags/master/svg/bj.svg" width="22"></kbd>
 <kbd><img title="Brazil"   alt="Brazil"   src="https://cdn.statically.io/gh/hjnilsson/country-flags/master/svg/br.svg" width="22"></kbd>
 <kbd><img title="Tanzania" alt="Tanzania flag" src="https://cdn.statically.io/gh/hjnilsson/country-flags/master/svg/tz.svg" width="22"></kbd>
+<kbd><img title="South Africa" alt="South Africa" src="https://cdn.pixabay.com/photo/2012/04/10/23/14/south-africa-26912_1280.png" width="22"></kbd>
 
 
 This is a project for you to practice contributing to open source projects with code.
