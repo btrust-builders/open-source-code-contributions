@@ -6,4 +6,8 @@ function createCard(contributor) {
     document.getElementById('contributor-cards').appendChild(iframe);
 }
 
+const contributorFiles = [
+    "coder256.html",
+];
+
 contributorFiles.forEach(contributor => createCard(contributor));
