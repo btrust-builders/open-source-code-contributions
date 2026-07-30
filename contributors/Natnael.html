@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Natnael Abebe — Profile Card</title>
+<style>
+  :root {
+    --bg: #0c0c0e;
+    --surface: #141417;
+    --border: #232327;
+    --text: #f2f1ec;
+    --text-dim: #8f8d88;
+    --amber: #e0972e;
+    --amber-soft: rgba(224, 151, 46, 0.12);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    margin: 0;
+    padding: 3rem 1.5rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  .card {
+    position: relative;
+    width: 100%;
+    max-width: 640px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 2.5rem 2.25rem 2.25rem;
+    overflow: hidden;
+  }
+
+  .corner {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 90px;
+    height: 90px;
+    background: var(--amber);
+    clip-path: polygon(100% 0, 0 0, 100% 100%);
+    opacity: 0.9;
+  }
+
+  .eyebrow {
+    font-family: 'SF Mono', 'Fira Code', ui-monospace, monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    color: var(--amber);
+    margin: 0 0 0.6rem;
+    text-transform: lowercase;
+  }
+
+  h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text);
+    margin: 0 0 0.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  .username {
+    font-family: 'SF Mono', 'Fira Code', ui-monospace, monospace;
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    margin: 0 0 1rem;
+  }
+
+  .tagline {
+    color: var(--text-dim);
+    font-size: 0.98rem;
+    line-height: 1.55;
+    margin: 0 0 2rem;
+    max-width: 46ch;
+  }
+
+  h4 {
+    font-family: 'SF Mono', 'Fira Code', ui-monospace, monospace;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-dim);
+    margin: 0 0 0.85rem;
+    padding-top: 1.4rem;
+    border-top: 1px solid var(--border);
+  }
+
+  h4:first-of-type { padding-top: 0; border-top: none; }
+
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+
+  .badge {
+    padding: 0.45rem 0.85rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    background: var(--amber-soft);
+    color: var(--amber);
+    border: 1px solid rgba(224, 151, 46, 0.25);
+  }
+
+  .icons {
+    gap: 1.4rem;
+  }
+
+  .icon-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    width: 3.4rem;
+  }
+
+  .icon {
+    width: 2rem;
+    height: 2rem;
+    filter: grayscale(15%);
+    transition: transform 0.15s ease, filter 0.15s ease;
+  }
+
+  .icon-wrap:hover .icon {
+    transform: translateY(-3px);
+    filter: none;
+  }
+
+  .icon-wrap span {
+    font-size: 0.68rem;
+    color: var(--text-dim);
+    text-align: center;
+  }
+
+  @media (max-width: 480px) {
+    .card { padding: 2rem 1.4rem; }
+    h3 { font-size: 1.6rem; }
+  }
+</style>
+</head>
+<body>
+  <article>
+    <div class="card">
+      <div class="corner"></div>
+      <p class="eyebrow">~/fullstack-developer</p>
+      <h3>Natnael Abebe</h3>
+      <p class="username">GitHub: Nabas444</p>
+      <p class="tagline">Fullstack web developer specializing in the MERN stack, with certification in networking &amp; hardware maintenance. I enjoy building practical, production-ready platforms from scratch — from database design to UI — and picking up new tools quickly under real project pressure.</p>
+
+      <h4>Languages I use</h4>
+      <section class="container">
+        <div class="badge js">JavaScript</div>
+        <div class="badge sql">PostgreSQL</div>
+        <div class="badge sql">MySQL</div>
+        <div class="badge html">HTML5</div>
+        <div class="badge css">CSS3</div>
+      </section>
+
+      <h4>Frameworks &amp; libraries</h4>
+      <section class="container">
+        <div class="badge">React.js</div>
+        <div class="badge">Node.js</div>
+        <div class="badge">Express.js</div>
+        <div class="badge">Tailwind CSS</div>
+        <div class="badge">REST APIs</div>
+      </section>
+
+      <h4>Tools I use</h4>
+      <section class="container icons">
+        <div class="icon-wrap">
+          <img class="icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="Git"/>
+          <span>Git</span>
+        </div>
+        <div class="icon-wrap">
+          <img class="icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="GitHub"/>
+          <span>GitHub</span>
+        </div>
+        <div class="icon-wrap">
+          <img class="icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" alt="Docker"/>
+          <span>Docker</span>
+        </div>
+        <div class="icon-wrap">
+          <img class="icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" alt="PostgreSQL"/>
+          <span>PostgreSQL</span>
+        </div>
+        <div class="icon-wrap">
+          <img class="icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" alt="Node.js"/>
+          <span>Node.js</span>
+        </div>
+        <div class="icon-wrap">
+          <img class="icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" alt="React"/>
+          <span>React</span>
+        </div>
+        <div class="icon-wrap">
+          <img class="icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind CSS"/>
+          <span>Tailwind</span>
+        </div>
+        <div class="icon-wrap">
+          <img class="icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg" alt="Linux"/>
+          <span>Linux</span>
+        </div>
+      </section>
+    </div>
+  </article>
+</body>
+</html>
