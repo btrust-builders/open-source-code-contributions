@@ -78,23 +78,20 @@ You can add your card as an HTML file in the contributors directory. Create a fi
 </style>
 
 ```
-## Add your card to contributors list
-
-Add the name of the file you created to `scripts/contributors.js` file.
-
-`scripts/contributors.js`
-```js
-const contributorFiles = [
-  "btrust-builders.html",
-  "your-github-username.html", // add your file name here
-];
-```
-
 ## View your changes in a web browser
 
-You can see your changes by opening `index.html` in a web browser. You should be able to see the new card you added in the previous steps.
+You can see your changes by opening `index.html` in a web browser. To do this, first run the generate cards script to update the contributors list:
 
-You can continue making changes to your card and refresh the web browser tab to see those changes.
+```bash
+bash scripts/generate-cards.sh
+```
+
+Then open `index.html` in your browser. You should be able to see the new card you added in the previous step.
+
+You can continue making changes to your card, re-run the script, and refresh the web browser tab to see those changes.
+
+> [!NOTE]
+> You don't need to commit the generated `scripts/contributors.js` file. The CI pipeline runs this script automatically when your pull request is submitted.
 
 ## Commit your changes
 
