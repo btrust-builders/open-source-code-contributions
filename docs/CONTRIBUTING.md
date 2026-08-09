@@ -78,17 +78,11 @@ You can add your card as an HTML file in the contributors directory. Create a fi
 </style>
 
 ```
-## Add your card to contributors list
+## Add your contributor card
 
-Add the name of the file you created to `scripts/contributors.js` file.
+Place the file you created in the `contributors/` directory.
 
-`scripts/contributors.js`
-```js
-const contributorFiles = [
-  "btrust-builders.html",
-  "your-github-username.html", // add your file name here
-];
-```
+Contributor cards are generated/loaded automatically by the project scripts, so you do not need to manually edit a `scripts/contributors.js` file.
 
 ## View your changes in a web browser
 
