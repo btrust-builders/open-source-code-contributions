@@ -34,3 +34,17 @@ h1 span {
 .success.button {
     font-weight: 700;
 }
+footer {
+    background-color: #070707;
+    text-align: center;
+    padding: 2rem;
+    margin-top: 2rem;
+}
+footer p {
+    color: #fafafa;
+    font-size: 1rem;
+}
+footer:hover {
+    background-color: #1dd829;
+    transition: background-color 0.3s ease;
+}
