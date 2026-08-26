@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alain Paisible MUGISHA — Data Science &amp; AI</title>
+<style>
+  :root{
+    --bg: #0b1220;
+    --bg-panel: #101a2e;
+    --line: #223251;
+    --ink: #eaf0ff;
+    --ink-dim: #8fa3c4;
+    --accent: #35e0c1;
+    --accent-dim: #1c8f7c;
+    --amber: #ffb454;
+    --mono: 'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    --sans: 'Sora', 'Inter', system-ui, -apple-system, Segoe UI, sans-serif;
+  }
+  @import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background: radial-gradient(1200px 600px at 85% -10%, #132445 0%, var(--bg) 55%) var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  a{color:inherit;}
+
+  /* subtle grid backdrop */
+  .grid-overlay{
+    position:fixed; inset:0; pointer-events:none; z-index:0;
+    background-image:
+      linear-gradient(rgba(53,224,193,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(53,224,193,0.05) 1px, transparent 1px);
+    background-size: 42px 42px;
+    mask-image: radial-gradient(circle at 50% 20%, black, transparent 75%);
+  }
+
+  .wrap{max-width:920px; margin:0 auto; padding:0 28px; position:relative; z-index:1;}
+
+  /* NAV */
+  nav{
+    position:sticky; top:0; z-index:10;
+    backdrop-filter: blur(10px);
+    background: rgba(11,18,32,0.75);
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{display:flex; align-items:center; justify-content:space-between; padding:16px 28px;}
+  .brand{font-family:var(--mono); font-weight:700; color:var(--accent); letter-spacing:0.5px; font-size:15px;}
+  .brand span{color:var(--ink-dim);}
+  nav ul{display:flex; gap:26px; list-style:none;}
+  nav ul li a{
+    font-family:var(--mono); font-size:12.5px; text-transform:uppercase; letter-spacing:1px;
+    color:var(--ink-dim); text-decoration:none; transition:color .2s;
+  }
+  nav ul li a:hover{color:var(--accent);}
+
+  /* HERO */
+  header.hero{padding:96px 0 72px; position:relative;}
+  .eyebrow{
+    font-family:var(--mono); font-size:13px; color:var(--accent);
+    display:flex; align-items:center; gap:10px; margin-bottom:22px;
+  }
+  .eyebrow::before{
+    content:''; width:8px; height:8px; border-radius:50%; background:var(--accent);
+    box-shadow:0 0 10px var(--accent); animation:pulse 2s infinite;
+  }
+  @keyframes pulse{0%,100%{opacity:1;} 50%{opacity:.35;}}
+  h1{
+    font-size:clamp(38px, 6vw, 62px);
+    font-weight:800; letter-spacing:-1.5px; line-height:1.05;
+    max-width:12ch;
+  }
+  h1 .accent{color:var(--accent);}
+  .role-line{
+    font-family:var(--mono); color:var(--amber); font-size:18px; margin-top:18px;
+    display:flex; align-items:center; gap:4px;
+  }
+  .cursor{width:10px; height:22px; background:var(--amber); display:inline-block; animation:blink 1s step-end infinite;}
+  @keyframes blink{50%{opacity:0;}}
+  .lede{max-width:56ch; color:var(--ink-dim); margin-top:24px; font-size:16.5px;}
+  .hero-actions{margin-top:36px; display:flex; gap:14px; flex-wrap:wrap;}
+  .btn{
+    font-family:var(--mono); font-size:13px; padding:12px 22px; border-radius:6px;
+    text-decoration:none; letter-spacing:.4px; transition: all .2s;
+  }
+  .btn-primary{background:var(--accent); color:#04211c; font-weight:700;}
+  .btn-primary:hover{background:#5cf0d6;}
+  .btn-ghost{border:1px solid var(--line); color:var(--ink);}
+  .btn-ghost:hover{border-color:var(--accent); color:var(--accent);}
+
+  /* SECTION shared */
+  section{padding:64px 0; border-top:1px solid var(--line);}
+  .sec-head{display:flex; align-items:baseline; gap:14px; margin-bottom:34px;}
+  .sec-num{font-family:var(--mono); color:var(--accent-dim); font-size:14px;}
+  .sec-title{font-size:26px; font-weight:700; letter-spacing:-.5px;}
+
+  /* ABOUT */
+  .about-grid{display:grid; grid-template-columns: 1.4fr 1fr; gap:40px;}
+  @media(max-width:720px){.about-grid{grid-template-columns:1fr;}}
+  .about-grid p{color:var(--ink-dim); margin-bottom:14px;}
+  .about-grid p strong{color:var(--ink); font-weight:600;}
+  .info-card{
+    background:var(--bg-panel); border:1px solid var(--line); border-radius:10px; padding:22px;
+    font-family:var(--mono); font-size:13.5px;
+  }
+  .info-card dt{color:var(--ink-dim); margin-top:12px; text-transform:uppercase; font-size:11px; letter-spacing:1px;}
+  .info-card dt:first-child{margin-top:0;}
+  .info-card dd{color:var(--ink); margin-top:3px;}
+
+  /* EDUCATION timeline */
+  .timeline{position:relative; padding-left:26px;}
+  .timeline::before{content:''; position:absolute; left:5px; top:6px; bottom:6px; width:1px; background:var(--line);}
+  .t-item{position:relative; padding-bottom:30px;}
+  .t-item:last-child{padding-bottom:0;}
+  .t-item::before{
+    content:''; position:absolute; left:-26px; top:4px; width:11px; height:11px;
+    border-radius:50%; background:var(--bg); border:2px solid var(--accent);
+  }
+  .t-year{font-family:var(--mono); color:var(--accent); font-size:13px; margin-bottom:4px;}
+  .t-title{font-weight:600; font-size:16px;}
+  .t-sub{color:var(--ink-dim); font-size:14.5px; margin-top:2px;}
+
+  /* SKILLS */
+  .skill-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:18px;}
+  .skill-card{
+    background:var(--bg-panel); border:1px solid var(--line); border-radius:10px; padding:20px;
+    transition:border-color .2s, transform .2s;
+  }
+  .skill-card:hover{border-color:var(--accent); transform:translateY(-3px);}
+  .skill-card .icon-badge{
+    width:38px; height:38px; border-radius:8px; background:rgba(53,224,193,0.12);
+    color:var(--accent); display:flex; align-items:center; justify-content:center;
+    font-family:var(--mono); font-weight:700; margin-bottom:14px; font-size:15px;
+  }
+  .skill-card h3{font-size:15.5px; margin-bottom:6px;}
+  .skill-card p{color:var(--ink-dim); font-size:13.5px;}
+
+  /* CERTIFICATES */
+  .cert-list{display:flex; flex-direction:column; gap:0;}
+  .cert-row{
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+    padding:16px 0; border-bottom:1px solid var(--line);
+  }
+  .cert-row:last-child{border-bottom:none;}
+  .cert-name{font-weight:600; font-size:15px;}
+  .cert-tag{
+    font-family:var(--mono); font-size:11px; color:var(--accent-dim);
+    border:1px solid var(--accent-dim); border-radius:20px; padding:4px 12px; white-space:nowrap;
+  }
+
+  /* LANGUAGES */
+  .lang-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:22px;}
+  .lang-item .lang-top{display:flex; justify-content:space-between; font-family:var(--mono); font-size:13px; margin-bottom:8px;}
+  .lang-top .level{color:var(--accent);}
+  .bar{height:6px; background:var(--line); border-radius:4px; overflow:hidden;}
+  .bar > span{display:block; height:100%; background:linear-gradient(90deg,var(--accent-dim),var(--accent)); border-radius:4px;}
+
+  /* INTERESTS */
+  .tag-cloud{display:flex; flex-wrap:wrap; gap:10px;}
+  .tag{
+    font-family:var(--mono); font-size:13px; padding:9px 16px; border-radius:20px;
+    background:var(--bg-panel); border:1px solid var(--line); color:var(--ink-dim);
+  }
+
+  /* FOOTER / CONTACT */
+  footer{padding:70px 0 50px; text-align:center;}
+  footer h2{font-size:28px; font-weight:800; margin-bottom:12px;}
+  footer p{color:var(--ink-dim); margin-bottom:30px;}
+  .contact-row{display:flex; justify-content:center; gap:16px; flex-wrap:wrap;}
+  .foot-note{margin-top:60px; font-family:var(--mono); font-size:12px; color:#4a5b7d;}
+</style>
+</head>
+<body>
+
+<div class="grid-overlay"></div>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">A. PAISIBLE<span>.dev</span></div>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#certs">Certificates</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <header class="hero">
+    <div class="eyebrow">AVAILABLE FOR OPPORTUNITIES — KIGALI, RWANDA</div>
+    <h1>Alain Paisible <span class="accent">MUGISHA</span></h1>
+    <div class="role-line">Data Science &amp; AI/ML Student <span class="cursor"></span></div>
+    <p class="lede">
+      Data Science student at Kigali Independent University (ULK), building a foundation
+      across machine learning, applied AI and cybersecurity fundamentals — backed by
+      certifications from ALX and IBM. Curious, self-driven, and always exploring new
+      technology, from data pipelines to music production.
+    </p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#contact">Get in touch</a>
+      <a class="btn btn-ghost" href="#certs">View certifications</a>
+    </div>
+  </header>
+
+  <section id="about">
+    <div class="sec-head"><span class="sec-num">01</span><span class="sec-title">About</span></div>
+    <div class="about-grid">
+      <div>
+        <p>I'm a <strong>Data Science student</strong> based in Kigali, originally from
+        Gicumbi/Byumba, Rwanda. My academic path runs from secondary studies at
+        Petit Séminaire de Rwesero through to my current program at ULK, where I'm
+        focused on data science.</p>
+        <p>Alongside coursework, I've built a self-taught track in <strong>machine
+        learning, artificial intelligence and ethical hacking</strong> through ALX
+        and IBM programs — pairing structured certification with hands-on curiosity
+        about how systems, data and security fit together.</p>
+        <p>Outside of tech, I volunteer, play volleyball, and produce beats and songs
+        in FL Studio — I like building things whether that's a model, a melody, or
+        a community.</p>
+      </div>
+      <div class="info-card">
+        <dl>
+          <dt>Location</dt><dd>Kigali, Rwanda</dd>
+          <dt>Nationality</dt><dd>Rwandan</dd>
+          <dt>Field</dt><dd>Data Science</dd>
+          <dt>Driving license</dt><dd>Category A (Motorcycle)</dd>
+          <dt>Status</dt><dd>Open to internships &amp; junior roles</dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="sec-head"><span class="sec-num">02</span><span class="sec-title">Education</span></div>
+    <div class="timeline">
+      <div class="t-item">
+        <div class="t-year">2025 — 2026</div>
+        <div class="t-title">Kigali Independent University (ULK)</div>
+        <div class="t-sub">Field of Data Science</div>
+      </div>
+      <div class="t-item">
+        <div class="t-year">2018 — 2024</div>
+        <div class="t-title">Petit Séminaire de Rwesero</div>
+        <div class="t-sub">O-Level &amp; A-Level</div>
+      </div>
+      <div class="t-item">
+        <div class="t-year">2015 — 2017</div>
+        <div class="t-title">Académie de la Salle, Byumba</div>
+        <div class="t-sub">General education</div>
+      </div>
+      <div class="t-item">
+        <div class="t-year">2014</div>
+        <div class="t-title">Apake Byumba Inyange</div>
+        <div class="t-sub">Early education</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="sec-head"><span class="sec-num">03</span><span class="sec-title">Core Competencies</span></div>
+    <div class="skill-grid">
+      <div class="skill-card">
+        <div class="icon-badge">DS</div>
+        <h3>Data Science</h3>
+        <p>IBM Data Science Professional coursework — data analysis, statistics and reporting fundamentals.</p>
+      </div>
+      <div class="skill-card">
+        <div class="icon-badge">ML</div>
+        <h3>Machine Learning (Python)</h3>
+        <p>Applied ML concepts and model building through hands-on Python-based training.</p>
+      </div>
+      <div class="skill-card">
+        <div class="icon-badge">AI</div>
+        <h3>Artificial Intelligence</h3>
+        <p>ALX AI Career Essentials and DTP AI &amp; ML certifications, from beginner to intermediate level.</p>
+      </div>
+      <div class="skill-card">
+        <div class="icon-badge">SEC</div>
+        <h3>Ethical Hacking</h3>
+        <p>Foundational cybersecurity and ethical hacking training — understanding systems from the defender's side.</p>
+      </div>
+      <div class="skill-card">
+        <div class="icon-badge">&gt;_</div>
+        <h3>Computer Proficiency</h3>
+        <p>Strong general computer navigation and adaptability to new software and tools.</p>
+      </div>
+      <div class="skill-card">
+        <div class="icon-badge">FL</div>
+        <h3>Music Production</h3>
+        <p>Producing beats and songs using FL Studio — a creative, technical side project.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="certs">
+    <div class="sec-head"><span class="sec-num">04</span><span class="sec-title">Certifications</span></div>
+    <div class="cert-list">
+      <div class="cert-row"><div class="cert-name">IBM Data Science Professional Certificate</div><div class="cert-tag">IBM</div></div>
+      <div class="cert-row"><div class="cert-name">ALX AiCE — AI Career Essentials</div><div class="cert-tag">ALX</div></div>
+      <div class="cert-row"><div class="cert-name">Machine Learning with Python</div><div class="cert-tag">Course</div></div>
+      <div class="cert-row"><div class="cert-name">Ethical Hacker</div><div class="cert-tag">Security</div></div>
+      <div class="cert-row"><div class="cert-name">ALX AI Starter Kit</div><div class="cert-tag">ALX</div></div>
+      <div class="cert-row"><div class="cert-name">ALX Freelance Academy</div><div class="cert-tag">ALX</div></div>
+      <div class="cert-row"><div class="cert-name">AI &amp; ML — Beginner Certificate</div><div class="cert-tag">DTP</div></div>
+      <div class="cert-row"><div class="cert-name">AI &amp; ML — Intermediate Certificate</div><div class="cert-tag">DTP</div></div>
+    </div>
+  </section>
+
+  <section id="languages">
+    <div class="sec-head"><span class="sec-num">05</span><span class="sec-title">Languages</span></div>
+    <div class="lang-grid">
+      <div class="lang-item">
+        <div class="lang-top"><span>Kinyarwanda</span><span class="level">Native</span></div>
+        <div class="bar"><span style="width:100%"></span></div>
+      </div>
+      <div class="lang-item">
+        <div class="lang-top"><span>English</span><span class="level">Very Good</span></div>
+        <div class="bar"><span style="width:85%"></span></div>
+      </div>
+      <div class="lang-item">
+        <div class="lang-top"><span>Français</span><span class="level">Basic</span></div>
+        <div class="bar"><span style="width:35%"></span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="interests">
+    <div class="sec-head"><span class="sec-num">06</span><span class="sec-title">Interests &amp; Hobbies</span></div>
+    <div class="tag-cloud">
+      <span class="tag">Volunteering</span>
+      <span class="tag">Computer Navigation</span>
+      <span class="tag">Communication</span>
+      <span class="tag">Piano</span>
+      <span class="tag">Volleyball</span>
+      <span class="tag">Mobile Tech</span>
+      <span class="tag">FL Studio Production</span>
+      <span class="tag">Cycling</span>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <h2>Let's work together</h2>
+    <p>Open to internships, junior data/AI roles, and collaborations.</p>
+    <div class="contact-row">
+      <a class="btn btn-primary" href="mailto:mugishaalainpaisible@gmail.com">mugishaalainpaisible@gmail.com</a>
+      <a class="btn btn-ghost" href="tel:+250780867473">+250 780 867 473</a>
+    </div>
+    <div class="foot-note">Kigali, Rwanda — © Alain Paisible MUGISHA</div>
+  </footer>
+
+</div>
+
+</body>
+</html>
