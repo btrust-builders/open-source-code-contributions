@@ -1,13 +1,27 @@
 <article>
-  <h3>Hussein Mwachikumba</h3>
-  <p>Dedicated problem-solving programmer interested in building practical software.</p>
+  <h3>Your Name</h3>
+  <p>Developer building web and mobile apps with a focus on clean, reliable code. Currently learning Bitcoin and Lightning development.</p>
+
   <h4>Programming languages I use</h4>
   <section class="container">
-    <div class="badge" style="background-color: #777bb4; color: white">PHP</div>
-    <div class="badge" style="background-color: #3776ab; color: white">Python</div>
-    <div class="badge" style="background-color: #e34f26; color: white">HTML</div>
+    <div class="item"><img class="icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg"/><span>HTML</span></div>
+    <div class="item"><img class="icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg"/><span>PHP</span></div>
+    <div class="item"><img class="icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"/><span>Python</span></div>
+    <div class="item"><img class="icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dart/dart-original.svg"/><span>Dart</span></div>
+    <div class="item"><img class="icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flutter/flutter-original.svg"/><span>Flutter</span></div>
   </section>
-  <p><a href="https://github.com/B0kkl">GitHub: B0kkl</a></p>
+
+  <h4>Tools I use</h4>
+  <section class="container">
+    <div class="item"><img class="icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg"/><span>VS Code</span></div>
+    <div class="item"><img class="icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg"/><span>Docker</span></div>
+    <div class="item"><img class="icon" src="https://cdn.simpleicons.org/claude/D97757"/><span>Claude Code</span></div>
+  </section>
+
+  <h4>Currently learning</h4>
+  <section class="container">
+    <div class="badge" style="background-color: #1f2937; color: white">Polar</div>
+  </section>
 </article>
 <style>
   body {
@@ -16,10 +30,22 @@
   .container {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     gap: 1rem;
+  }
+  .item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.75rem;
   }
   .badge {
     padding: 0.5rem;
     border-radius: 0.25rem;
+  }
+  .icon {
+    width: 2rem;
+    height: 2rem;
   }
 </style>
